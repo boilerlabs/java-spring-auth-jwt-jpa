@@ -1,6 +1,8 @@
 package com.boilerlabs.auth.entities;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,6 +24,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -31,15 +37,18 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, Set<Role> roles) {
         this.username = username;
         this.password = password;
+        this.roles = roles;
     }
 
-    public User(UUID id, String username, String password, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(UUID id, String username, String password,
+            Set<Role> roles, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.roles = roles;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -66,6 +75,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public LocalDateTime getCreatedAt() {
