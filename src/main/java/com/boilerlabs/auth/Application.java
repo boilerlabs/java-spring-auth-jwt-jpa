@@ -1,4 +1,4 @@
-package com.boilerlabs.auth_jwt_java_spring;
+package com.boilerlabs.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,10 +1,10 @@
-package com.boilerlabs.auth_jwt_java_spring;
+package com.boilerlabs.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AuthJwtJavaSpringApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
