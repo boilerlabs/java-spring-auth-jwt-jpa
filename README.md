@@ -25,21 +25,19 @@ A boilerplate starter project for building a Java Spring Boot application with J
 
 ### Installation
 1. Clone the repository:
-1. Clone the repo:
 
 ```bash
 git clone https://github.com/boboilerlabs/auth-jwt-java-spring
 cd auth-jwt-java-spring
 ```
 
-2. Install dependencies:
-
+2. Generating `app.key` and `app.pub`:
 ```bash
-mvn install
+openssl genrsa -out src/main/resources/app.key 2048 
+openssl rsa -in src/main/resources/app.key -pubout -out src/main/resources/app.pub
 ```
 
-3. Run the app:
-
+3. Running with Maven
 ```bash
 mvn spring-boot:run
 ```
