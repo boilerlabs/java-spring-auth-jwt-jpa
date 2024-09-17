@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.boilerlabs.auth.entities.Role;
 import com.boilerlabs.auth.entities.User;
@@ -34,6 +35,7 @@ public class AuthService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Transactional
     public void signUp(SignUpRequestRecord signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.username())) {
             throw new RuntimeException("Username already taken");
@@ -47,6 +49,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    @Transactional(readOnly = true)
     public SignInResponseRecord signIn(SignInRequestRecord signInRequest) {
         User user = userRepository.findByUsername(signInRequest.username())
                 .orElseThrow(() -> new RuntimeException("Invalid username or password"));
