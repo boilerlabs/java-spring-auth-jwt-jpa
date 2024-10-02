@@ -1,8 +1,8 @@
-# 🚀 Auth JWT Java Spring Boot JPA
+# 🚀 Java Spring Boot JPA JWT Auth
 
-![License](https://img.shields.io/github/license/boilerlabs/auth-jwt-java-spring-jpa)
-![Issues](https://img.shields.io/github/issues/boilerlabs/auth-jwt-java-spring-jpa)
-![Stars](https://img.shields.io/github/stars/boilerlabs/auth-jwt-java-spring)
+![License](https://img.shields.io/github/license/boilerlabs/java-spring-auth-jwt-jpa)
+![Issues](https://img.shields.io/github/issues/boilerlabs/java-spring-auth-jwt-jpa)
+![Stars](https://img.shields.io/github/stars/boilerlabs/java-spring-auth-jwt-jpa)
 
 A boilerplate starter project for building a Java Spring Boot application with JWT authentication and JPA. This template includes essential features for implementing secure and scalable authentication systems in your Spring Boot applications.
 
@@ -32,8 +32,8 @@ A boilerplate starter project for building a Java Spring Boot application with J
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/boboilerlabs/auth-jwt-java-spring
-cd auth-jwt-java-spring
+git clone https://github.com/boboilerlabs/java-spring-auth-jwt-jpa
+cd java-spring-auth-jwt-jpa
 ```
 
 2. Generating `app.key` and `app.pub`:
