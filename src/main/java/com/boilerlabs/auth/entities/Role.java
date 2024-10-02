@@ -3,6 +3,7 @@ package com.boilerlabs.auth.entities;
 import java.util.UUID;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "roles")
@@ -12,7 +13,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
+    @NotEmpty(message = "Name is required")
     private String name;
 
     public Role() {

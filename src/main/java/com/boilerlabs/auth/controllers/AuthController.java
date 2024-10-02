@@ -13,6 +13,8 @@ import com.boilerlabs.auth.records.SignInResponseRecord;
 import com.boilerlabs.auth.records.SignUpRequestRecord;
 import com.boilerlabs.auth.services.AuthService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -21,7 +23,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signUp(@RequestBody SignUpRequestRecord signUpRequest) {
+    public ResponseEntity<String> signUp(@Valid @RequestBody SignUpRequestRecord signUpRequest) {
         try {
             authService.signUp(signUpRequest);
             return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
@@ -31,7 +33,7 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<SignInResponseRecord> signIn(@RequestBody SignInRequestRecord signInRequest) {
+    public ResponseEntity<SignInResponseRecord> signIn(@Valid @RequestBody SignInRequestRecord signInRequest) {
         try {
             SignInResponseRecord response = authService.signIn(signInRequest);
             return ResponseEntity.ok(response);

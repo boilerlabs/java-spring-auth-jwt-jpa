@@ -9,6 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -19,13 +21,15 @@ public class User {
     private UUID id;
 
     @Column(nullable = false)
+    @NotEmpty(message = "Username is required")
     private String username;
 
-    @Column(nullable = false)
+    @NotEmpty(message = "Password is required")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @NotNull(message = "Roles are required")
     private Set<Role> roles = new HashSet<>();
 
     @CreationTimestamp

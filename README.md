@@ -21,6 +21,7 @@ A boilerplate starter project for building a Java Spring Boot application with J
 - Password hashing for secure storage
 - User Sign Up and Sign In endpoints
 - Profile endpoint for accessing user details
+- Jakarta Bean Validation for input validation
 
 ## Getting Started
 
